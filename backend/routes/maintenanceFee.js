@@ -1,8 +1,5 @@
-import { Router } from "express";
-import mongoose from "mongoose";
-import multer from "multer";
-import cloudinary from "cloudinary";
-import MaintenanceFee from "../models/MaintenanceFee.js";
+const { Router } = require("express");
+const MaintenanceFee = require( "../models/MaintenanceFee.js");
 
 
 const router = Router();
@@ -61,4 +58,4 @@ router.put("/maintenance/update/:id", async (req, res) => {
   })
 
 
-export default router;
+  module.exports = router;

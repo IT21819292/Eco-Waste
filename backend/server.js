@@ -12,6 +12,9 @@ const requestRoutes = require('./routes/Requests');
 const productRoutes = require('./routes/Products');
 const checkOutRoutes = require('./routes/CheckOuts');
 const cardRoutes = require('./routes/Cards');
+const truckRoutes = require("./routes/trucks.js");
+const assignedTruckRoutes = require("./routes/assignedtrucks.js");
+const maintenanceFee = require("./routes/maintenanceFee.js");
 
 
 
@@ -25,6 +28,9 @@ app.use(requestRoutes);
 app.use(productRoutes);
 app.use(checkOutRoutes);
 app.use(cardRoutes);
+app.use("/api", truckRoutes);
+app.use("/api", assignedTruckRoutes);
+app.use("/api", maintenanceFee);
 
 
 const PORT = process.env.Port;

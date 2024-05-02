@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
@@ -31,4 +31,4 @@ const assignedTruckSchema = new Schema({
 });  
 
 const AssignedTruck = mongoose.model("AssignedTruck", assignedTruckSchema);
-export default AssignedTruck;
+module.exports = AssignedTruck;

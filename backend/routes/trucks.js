@@ -1,8 +1,8 @@
-import { Router } from "express";
-import mongoose from "mongoose";
-import multer from "multer";
-import cloudinary from "cloudinary";
-import Truck from "../models/Truck.js";
+const { Router } = require("express");
+const mongoose = require("mongoose");
+const multer = require("multer");
+const cloudinary = require("cloudinary");
+const Truck = require("../models/Truck.js");
 
 
 const router = Router();
@@ -110,4 +110,4 @@ router.delete('/delete/:id', async (req, res) => {
   res.json(result)
 })
 
-export default router;
+module.exports = router;

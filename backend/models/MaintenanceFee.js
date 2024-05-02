@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
@@ -22,4 +22,4 @@ const maintenanceFeeSchema = new Schema({
 });  
 
 const MaintenanceFee = mongoose.model("MaintenanceFee", maintenanceFeeSchema);
-export default MaintenanceFee;
+module.exports = MaintenanceFee;

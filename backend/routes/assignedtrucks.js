@@ -1,9 +1,5 @@
-import { Router } from "express";
-import mongoose from "mongoose";
-import multer from "multer";
-import cloudinary from "cloudinary";
-import Truck from "../models/Truck.js";
-import AssignedTruck from "../models/AssignedTruck.js";
+const { Router } = require("express");
+const AssignedTruck = require( "../models/AssignedTruck.js");
 
 
 const router = Router();
@@ -65,4 +61,4 @@ router.put("/assign-truck/update/:id", async (req, res) => {
   })
 
 
-export default router;
+  module.exports = router;

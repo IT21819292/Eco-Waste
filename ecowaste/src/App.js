@@ -32,6 +32,16 @@ import Footer from './components/Footer'
 import ApprovedList from './RequestManage/ApprovedList';
 import PendingList from './RequestManage/PendingList';
 
+//IT21809842 
+import AddTruck from './pages/AddTruck';
+import AssignTruck from './pages/AssignTruck';
+import Maintenance from './pages/Maintenance';
+import ViewRequests from './pages/ViewRequests';
+import MaintenanceSummary from './pages/MaintenanceSummary';
+import AssignTruckForm from './pages/AssignTruckForm';
+import Dashboard from './pages/Dashboard';
+import EditTruck from './pages/EditTruck';
+
 
 
 import { QueryClient, QueryClientProvider } from 'react-query';
@@ -72,6 +82,17 @@ const App = () => {
           <Route path="/checkout" element={renderProtected(Checkout)} />
           <Route path="/checkoutdashboard" element={renderProtected(CheckoutDashboard)} />
           <Route path="/requestdashboard" element={renderProtected(RequestDashboard)} />
+
+          {/* IT21809842 */}
+          <Route path="/add-truck" element={<AddTruck />} />
+          <Route path="/assign-truck" element={<AssignTruck />} />
+          <Route path="/assign-truck-form" element={<AssignTruckForm />} />
+          <Route path="/maintenance" element={<Maintenance />} />
+          <Route path="/maintenance-summary" element={<MaintenanceSummary />} />
+          <Route path="/view-requests" element={<ViewRequests />} />
+          <Route path="/assign-truck/:id" element={<AssignTruckForm />} />
+          <Route path="/edit-truck/:id" element={<EditTruck />} />
+          <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
         {window.localStorage.getItem("loggedIn") === "true" && (
           <>
