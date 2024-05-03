@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useEffect, useState} from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Styles.css';
@@ -42,6 +42,15 @@ import AssignTruckForm from './pages/AssignTruckForm';
 import Dashboard from './pages/Dashboard';
 import EditTruck from './pages/EditTruck';
 
+//IT21819292
+import Header from "./componenets/HeaderRusiru";
+import RouteDashboard from "./componenets/RouteDashboard";
+import ViewRoute from "./componenets/ViewRoute";
+import AddRegularRoute from "./componenets/AddRegularRoute";
+import ViewBinLevel from "./componenets/ViewBinLevel";
+import MockSensor from './componenets/MockSensor';
+import AddSpecialRoute from './componenets/AddSpecialRiute';
+
 
 
 import { QueryClient, QueryClientProvider } from 'react-query';
@@ -59,6 +68,31 @@ const App = () => {
     const isLoggedIn = window.localStorage.getItem("loggedIn") === "true";
     return isLoggedIn ? <Component /> : <Navigate to="/signin" />;
   };
+
+  // State to store the bin fill level
+const [binLevels, setBinLevels] = useState({
+  A: 0,
+  B: 0,
+  C: 0,
+  D: 0,
+  E: 0
+});// Initialize with 5 bins
+
+   // Function to update bin fill levels
+   const updateBinLevels = () => {
+    // Generate new bin levels for each bin
+    const newBinLevels = Object.fromEntries(
+      Object.entries(binLevels).map(([bin, level]) => [bin, Math.floor(Math.random() * 101)])
+    );
+    setBinLevels(newBinLevels);
+  };
+
+  // useEffect to set up interval for updating bin fill levels
+  useEffect(() => {
+    // Update bin fill levels every 5 seconds
+    const interval = setInterval(updateBinLevels, 5000);
+    return () => clearInterval(interval); // Cleanup function to clear interval
+  }, []);
 
     return (
       <QueryClientProvider client={queryClient}>
@@ -93,6 +127,15 @@ const App = () => {
           <Route path="/assign-truck/:id" element={<AssignTruckForm />} />
           <Route path="/edit-truck/:id" element={<EditTruck />} />
           <Route path="/services" element={<Dashboard />} /> {/**vehicle dashboard Route */}
+
+          {/**IT21819292*/}
+          <Route path="/routedash" element={<RouteDashboard />}/>
+          <Route path="/viewroute" element={<ViewRoute/>}/>
+          <Route path="/addrroute" element={<AddRegularRoute/>}/>
+          {/* Pass binLevel state as prop to ViewBinLevel component */}
+          <Route path="/viewbin" element={<ViewBinLevel binLevels={binLevels} />}/>
+          <Route path="/add-special-route" element={<AddSpecialRoute/>} />
+            
         </Routes>
         {window.localStorage.getItem("loggedIn") === "true" && (
           <>
@@ -106,6 +149,8 @@ const App = () => {
             )}
           </>
         )}
+        {/* Render the MockSensor component to simulate sensor data */}
+        <MockSensor onDataUpdate={updateBinLevels} />
         <Footer />
       </Router>
     </QueryClientProvider>
