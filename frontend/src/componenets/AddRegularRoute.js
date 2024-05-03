@@ -32,7 +32,7 @@ export default function AddRegularRoute(){
       console.log("RDayID:",rdayid,"RDay:",rday,"RRoute:",rroute)
     }
 
-    axios.post("http://localhost:8070/regularroute/addrroute",newRegularRoute).then(()=>{
+    axios.post("http://localhost:8080/regularroute/addroute",newRegularRoute).then(()=>{
       alert("Route Added")
       setRDayID("");
       setRDay("");
