@@ -6,7 +6,8 @@ import ViewRoute from "./componenets/ViewRoute";
 import AddRegularRoute from "./componenets/AddRegularRoute";
 import ViewBinLevel from "./componenets/ViewBinLevel";
 import MockSensor from './componenets/MockSensor';
-import AddSpecialRoute from './componenets/AddSpecialRiute';
+import AddSpecialRoute from './componenets/AddSpecialRoute';
+
 
 
 
@@ -49,7 +50,7 @@ const [binLevels, setBinLevels] = useState({
       
       <Route path="/routedash" element={<RouteDashboard />}/>
       <Route path="/viewroute" element={<ViewRoute/>}/>
-      <Route path="/addrroute" element={<AddRegularRoute/>}/>
+      <Route path="/addroute" element={<AddRegularRoute/>}/>
       {/* Pass binLevel state as prop to ViewBinLevel component */}
       <Route path="/viewbin" element={<ViewBinLevel binLevels={binLevels} />}/>
       <Route path="/add-special-route" element={<AddSpecialRoute/>} />
