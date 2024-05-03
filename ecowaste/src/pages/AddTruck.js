@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 
-const API_BASE = 'http://localhost:8080';
+const API_BASE = 'http://localhost:5000';
 
 const AddTruck = () => {
   const [file, setFile] = useState(null);
@@ -116,7 +116,7 @@ const AddTruck = () => {
 
         try {
           const response = await axios.post(
-            'http://localhost:8080/api/upload',
+            'http://localhost:5000/api/upload',
             formData,
             {
               headers: {

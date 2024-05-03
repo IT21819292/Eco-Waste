@@ -10,7 +10,7 @@ const ViewRequests = () => {
   const fetchAssignedData = async () => {
     setAssignedLoading(true);
     try {
-      const { data: response } = await axios.get('http://localhost:8080/api/assign-truck/fetch');
+      const { data: response } = await axios.get('http://localhost:5000/api/assign-truck/fetch');
       setAssignedData(response);
       console.log(response);
     } catch (error) {

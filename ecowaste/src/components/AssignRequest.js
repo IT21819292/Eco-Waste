@@ -11,7 +11,7 @@ const AssignRequest = ({ data }) => {
 
     const sendDataToBackend = () => {
         axios
-            .put(`http://localhost:8080/api/assign-truck/update/${data._id}`, { status: !accepted }) // Send the updated status
+            .put(`http://localhost:5000/api/assign-truck/update/${data._id}`, { status: !accepted }) // Send the updated status
             .then((response) => {
                 console.log('PUT request successful:', response.data);
             })

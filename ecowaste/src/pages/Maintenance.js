@@ -4,7 +4,7 @@ import Swal from 'sweetalert2';
 import { useParams } from 'react-router-dom';
 import { useState } from "react";
 
-const API_BASE = "http://localhost:8080";
+const API_BASE = "http://localhost:5000";
 
 const Maintenance = () => {
   const { id } = useParams();
@@ -76,7 +76,7 @@ const Maintenance = () => {
         Swal.fire('Maintenance Fee Added!', 'success');
 
         try {
-          const response = await axios.post('http://localhost:8080/api/add-maitenance-fee', data);
+          const response = await axios.post('http://localhost:5000/api/add-maitenance-fee', data);
           console.log('Response Data:', response.data);
         } catch (err) {
           console.error('Axios Error:', err);

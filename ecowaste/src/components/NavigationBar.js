@@ -11,38 +11,38 @@ function NavigationBar() {
     const [fullName, setFullName] = useState('');
     const [image, setImage] = useState('');
     const [admin, setAdmin] = useState(false);
-    useEffect(() => {
-        fetchProfile();
-        fetchUser(token);
-      }, [userId,token]);
+  //   useEffect(() => {
+  //       fetchProfile();
+  //       fetchUser(token);
+  //     }, [userId,token]);
     
     
-      const fetchProfile = async () => {
-        try {
-            const response = await UserApi.fetchUserID(userId);
-            console.log(response);
-            let data = response.data;
-            console.log(data);
-            setFullName(data.fullName);
-            setImage(data.image);
-        } catch (error) {
-            console.error('Error fetching user data:', error);
-        }
-        };
+  //     const fetchProfile = async () => {
+  //       try {
+  //           const response = await UserApi.fetchUserID(userId);
+  //           console.log(response);
+  //           let data = response.data;
+  //           console.log(data);
+  //           setFullName(data.fullName);
+  //           setImage(data.image);
+  //       } catch (error) {
+  //           console.error('Error fetching user data:', error);
+  //       }
+  //       };
 
-  const fetchUser = async (token) => {
-    if (token) {
-      try{
-        const res = await UserApi.fetchUserData(token);
-        let data = res.data;
-        if (data.isAdmin === true) { // Assuming isAdmin is a boolean
-          setAdmin(true);
-        }
-      } catch (error) {
-        console.error('Failed to fetch user data:', error);
-      }
-    }
-  };
+  // const fetchUser = async (token) => {
+  //   if (token) {
+  //     try{
+  //       const res = await UserApi.fetchUserData(token);
+  //       let data = res.data;
+  //       if (data.isAdmin === true) { // Assuming isAdmin is a boolean
+  //         setAdmin(true);
+  //       }
+  //     } catch (error) {
+  //       console.error('Failed to fetch user data:', error);
+  //     }
+  //   }
+  // };
   return (
     <div className='head' style={{ 
       backgroundImage: `url(${backgroundImage})`, 

@@ -2,8 +2,10 @@ import React, { useEffect, useState } from 'react';
 import SearchList from '../components/SearchList';
 import Scroll from '../components/Scroll';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom'
 
 const AssignTruck = () => {
+  const navigate = useNavigate();
   const [truckData, setTruckData] = useState([]);
   const [truckLoading, setTruckLoading] = useState(true);
   const [searchField, setSearchField] = useState('');
@@ -11,7 +13,7 @@ const AssignTruck = () => {
   const fetchTruckData = async () => {
     setTruckLoading(true);
     try {
-      const response = await axios.get('http://localhost:8080/api/trucks');
+      const response = await axios.get('http://localhost:5000/api/trucks');
       setTruckData(response.data); // Assuming the data is in 'data' property
       console.log(response.data);
     } catch (error) {
@@ -41,6 +43,9 @@ const AssignTruck = () => {
 
   return (
     <section style={{ paddingTop: '80px' }}>
+        <div className="btn btn-primary" onClick={()=>{navigate('/view-requests')}} style={{float:"right"}}>View Requests</div>
+        <br/>
+        <br/>
       <div className="d-flex justify-content-center align-items-center ">
         <h2 className="">Search Truck</h2>
       </div>

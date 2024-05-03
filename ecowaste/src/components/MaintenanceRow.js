@@ -12,7 +12,7 @@ const MaintenanceRow = ({ fee }) => {
 
     const sendDataToBackend = () => {
 
-        axios.put(`http://localhost:8080/api/maintenance/update/${fee._id}`)
+        axios.put(`http://localhost:5000/api/maintenance/update/${fee._id}`)
             .then((response) => {
                 console.log('PUT request successful:', response.data);
 

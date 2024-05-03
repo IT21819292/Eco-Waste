@@ -4,7 +4,7 @@ import Swal from 'sweetalert2';
 import { useParams } from 'react-router-dom';
 import FormData from 'form-data';
 
-const API_BASE = 'http://localhost:8080';
+const API_BASE = 'http://localhost:5000';
 
 const EditTruck = () => {
     const { id } = useParams();
@@ -124,7 +124,7 @@ const EditTruck = () => {
 
                 try {
                     const response = await axios.post(
-                        'http://localhost:8080/api/update-truck',
+                        'http://localhost:5000/api/update-truck',
                         formData,
                         {
                             headers: {

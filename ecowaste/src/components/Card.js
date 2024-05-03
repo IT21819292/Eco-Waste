@@ -30,7 +30,7 @@ function Card({ truck, fetchTruckData }) {
       if (result.isConfirmed) {
         Swal.fire('Truck Deleted!', 'success');
 
-        axios.delete(`http://localhost:8080/api/delete/${id}`)
+        axios.delete(`http://localhost:5000/api/delete/${id}`)
           .then((response) => {
             // Handle success, e.g., show a success message
             console.log(`Truck with ID ${id} has been deleted.`);

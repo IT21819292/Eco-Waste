@@ -92,7 +92,7 @@ const App = () => {
           <Route path="/view-requests" element={<ViewRequests />} />
           <Route path="/assign-truck/:id" element={<AssignTruckForm />} />
           <Route path="/edit-truck/:id" element={<EditTruck />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/services" element={<Dashboard />} /> {/**vehicle dashboard Route */}
         </Routes>
         {window.localStorage.getItem("loggedIn") === "true" && (
           <>

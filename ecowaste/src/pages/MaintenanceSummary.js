@@ -12,7 +12,7 @@ const MaintenanceSummary = () => {
   const fetchFeeData = async () => {
     setFeeLoading(true);
     try {
-      const { data: response } = await axios.get('http://localhost:8080/api/add-maitenance-fee');
+      const { data: response } = await axios.get('http://localhost:5000/api/add-maitenance-fee');
       setFeeData(response);
       console.log(response);
     } catch (error) {
@@ -54,7 +54,7 @@ const MaintenanceSummary = () => {
           sheet="maintenance"
           currentTableRef={tableRef.current}
         >
-          <button className="btn btn-sucess" type="button">Export Report</button>
+          <button className="btn btn-success" type="button">Export Report</button>
 
         </DownloadTableExcel>
 

@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom';
 
 import { useState, } from "react";
 
-const API_BASE = "http://localhost:8080";
+const API_BASE = "http://localhost:5000";
 
 const AssignTruck = () => {
 
@@ -20,7 +20,7 @@ const AssignTruck = () => {
     const fetchTruckData = async () => {
         setTruckLoading(true);
         try {
-            const { data: response } = await axios.get(`http://localhost:8080/api/trucks/${id}`);
+            const { data: response } = await axios.get(`http://localhost:5000/api/trucks/${id}`);
             setTruckData(response);
 
             // Set newTruck.vehicleNumber to truckData.vehicleNumber
@@ -116,7 +116,7 @@ const AssignTruck = () => {
                 Swal.fire('Truck Assigned!', 'success');
 
                 try {
-                    const response = await axios.post('http://localhost:8080/api/assign-truck', data 
+                    const response = await axios.post('http://localhost:5000/api/assign-truck', data 
         
                     );
                     console.log('Response Data:', response.data);
