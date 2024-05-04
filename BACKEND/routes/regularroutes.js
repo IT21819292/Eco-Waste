@@ -56,20 +56,21 @@ router.route("/updateroute/:id").put(async(req,res)=>{
 
 //delete data
 router.route("/deleteroute/:id").delete(async(req,res)=>{
-    let rdayid = req.params.id;
+    let routeId = req.params.id;
 
 
-    await regularroute.findByIdAndDelete(rdayid).then(()=>{
+    await regularroute.findByIdAndDelete(routeId).then(()=>{
         res.status(200).send({status: "deleted"})
     }).catch((err)=>{
         console.log(err);
     })
 })
 
-//get one waste type detail
+
+//get one  type detail
 router.route("/getroute/:id").get(async(req,res)=>{
-    let regularroute = req.params.id;
-    const rdayid = await waste_type.findById(rdayid).then((regularroute)=>{
+    let routeId = req.params.id;
+    const rday= await regularroute.findOne(rday).then((regularroute)=>{
       res.status(200).send({status:"fetched",regularroute})
     }).catch((err)=>{
         console.log(err);
