@@ -31,7 +31,7 @@ const AddSpecialRoute = () => {
   };
 
   return (
-    <LoadScript googleMapsApiKey="AIzaSyAYh11_TbZPsr21g1qXwnewaRVCy-lIhG8">
+    <LoadScript googleMapsApiKey="Google API Key">
       <div>
         <form onSubmit={checkDistance}>
           <input type="text" onChange={(e) => setOrigin(e.target.value)} placeholder="Origin" />
